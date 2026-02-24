@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "name": "siitrav",
+  "buildCommand": "cd webapp && bun install && bun run build",
+  "outputDirectory": "webapp/dist",
+  "installCommand": "cd webapp && bun install",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
