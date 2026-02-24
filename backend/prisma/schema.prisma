@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id          String   @id
+  nickname    String
+  avatarColor String   @default("#6366f1")
+  createdAt   DateTime @default(now())
+  lastSeen    DateTime @default(now())
+  posts       Post[]
+  sentMessages     Message[] @relation("SentMessages")
+  conversations1   Conversation[] @relation("User1Conversations")
+  conversations2   Conversation[] @relation("User2Conversations")
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  userId    String
+  imageUrl  String
+  caption   String?
+  createdAt DateTime @default(now())
+  profile   Profile  @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Conversation {
+  id        String    @id @default(cuid())
+  user1Id   String
+  user2Id   String
+  createdAt DateTime  @default(now())
+  user1     Profile   @relation("User1Conversations", fields: [user1Id], references: [id], onDelete: Cascade)
+  user2     Profile   @relation("User2Conversations", fields: [user2Id], references: [id], onDelete: Cascade)
+  messages  Message[]
+  @@unique([user1Id, user2Id])
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversationId String
+  senderId       String
+  type           String       @default("text")
+  text           String?
+  mediaUrl       String?
+  durationMs     Int?
+  createdAt      DateTime     @default(now())
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  sender         Profile      @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+}

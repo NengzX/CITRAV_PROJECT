@@ -1,0 +1,42 @@
++ exec gosu vibecode scripts/start
+Starting in development mode...
+Installing dependencies...
+[0.04ms] ".env"
+bun install v1.2.19 (aad3abea)
+
+Checked 115 installs across 116 packages (no changes) [5.00ms]
+Generating Prisma client...
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+
+✔ Generated Prisma Client (v6.19.2) to ./node_modules/@prisma/client in 67ms
+
+Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+
+Tip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate
+
+Pushing schema to database...
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+Datasource "db": SQLite database "dev.db" at "file:./prisma/dev.db"
+
+The database is already in sync with the Prisma schema.
+
+Running generate... (Use --skip-generate to skip the generators)
+[2K[1A[2K[GRunning generate... - Prisma Client
+[2K[1A[2K[G✔ Generated Prisma Client (v6.19.2) to ./node_modules/@prisma/client in 59ms
+
+Enabling database viewer...
+{"success":true}Starting server in dev mode with hot reload...
+[Vibecode Proxy] Initialized for project: 019c8f86-f074-715f-8966-1311f56c4257 and proxy host: proxy.vibecodeapp.com
+Environment variables validated successfully
+Started development server: http://localhost:3000
+[Vibecode Proxy] Loaded 14 proxied domains
+<-- GET /api/posts
+--> GET /api/posts [32m200[0m 2ms
+<-- GET /api/auth/callback/google
+--> GET /api/auth/callback/google [33m404[0m 0ms
+<-- GET /favicon.ico
+--> GET /favicon.ico [33m404[0m 0ms
+<-- GET /api/posts
+--> GET /api/posts [32m200[0m 1ms

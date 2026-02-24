@@ -1,0 +1,7 @@
++ exec gosu vibecode node node_modules/.bin/vite
+
+  VITE v5.4.21  ready in 156 ms
+
+  ➜  Local:   http://localhost:8000/
+  ➜  Network: http://172.17.0.2:8000/
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
